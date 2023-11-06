@@ -1,0 +1,32 @@
+
+@id=e26657aa-6977-46fc-b143-03017336b87c
+POST http://localhost:5283/sessions
+Content-Type: application/json
+
+{
+    "movieName":"Teste errado",
+    "synopsis":"era uma vez uma filme",
+    "language":"dublado",
+    "room":"0",
+    "startDateTime":"2022-04-08T11:00:00",
+    "endDateTime":"2022-04-08T13:00:00"
+}
+
+###
+GET http://localhost:5283/sessions/{{id}}
+
+###
+PUT http://localhost:5283/sessions/{{id}}
+Content-Type: application/json
+
+{
+    "movieName":"TEstessss",
+    "synopsis":"era uma vez uma filme",
+    "language":"dublado",
+    "room":1,
+    "startDateTime":"2022-04-08T11:00:00",
+    "endDateTime":"2022-04-08T13:00:00"
+}
+
+###
+DELETE  http://localhost:5283/sessions/{{id}}
