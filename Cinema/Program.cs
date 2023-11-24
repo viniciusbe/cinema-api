@@ -1,7 +1,9 @@
+using Cinema.Helpers;
 using Cinema.Services.Sessions;
 
 var builder = WebApplication.CreateBuilder(args);
 {
+    builder.Services.AddDbContext<DataContext>();
     builder.Services.AddControllers();
     builder.Services.AddScoped<ISessionService, SessionService>();
 }
