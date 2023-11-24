@@ -11,8 +11,6 @@ The project relies on the following dependencies:
 - [Npgsql](https://www.nuget.org/packages/Npgsql/) (Version 8.0.0)
 - [Npgsql.EntityFrameworkCore.PostgreSQL](https://www.nuget.org/packages/Npgsql.EntityFrameworkCore.PostgreSQL/) (Version 6.0.7)
 
-(Note: The specific code for including these dependencies is not included here.)
-
 ## Todo List
 
 Here is a list of features that will be developed in the future:
