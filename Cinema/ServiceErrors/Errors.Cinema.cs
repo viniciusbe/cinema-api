@@ -11,7 +11,7 @@ public static class Errors
             description: "Session not found");
 
         public static Error InvalidRoom => Error.Validation(
-        code: "Session.NotFound",
-        description: $"Session room must be between {Models.Session.MinRoomNumber} and {Models.Session.MaxRoomNumber}");
+            code: "Session.NotFound",
+            description: $"Session room must be between {Models.Session.MinRoomNumber} and {Models.Session.MaxRoomNumber}");
     }
 }
