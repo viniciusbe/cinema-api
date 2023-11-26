@@ -9,16 +9,16 @@ public class Session
 {
     public const int MinRoomNumber = 1;
     public const int MaxRoomNumber = 7;
-    public Guid Id { get; }
-    public string MovieName { get; }
-    public string Synopsis { get; }
-    public string Language { get; }
-    public int Room { get; }
-    public DateTime StartDateTime { get; }
-    public DateTime EndDateTime { get; }
-    public DateTime LastModifiedDateTime { get; }
+    public Guid Id { get; set; }
+    public string MovieName { get; set; }
+    public string Synopsis { get; set; }
+    public string Language { get; set; }
+    public int Room { get; set; }
+    public DateTime StartDateTime { get; set; }
+    public DateTime EndDateTime { get; set; }
+    public DateTime LastModifiedDateTime { get; set; }
 
-    private Session(
+    public Session(
         Guid id,
         string movieName,
         string synopsis,
@@ -28,14 +28,14 @@ public class Session
         DateTime endDateTime,
         DateTime lastModifiedDateTime)
     {
-        Id = id;
-        MovieName = movieName;
-        Synopsis = synopsis;
-        Language = language;
-        Room = room;
-        StartDateTime = startDateTime;
-        EndDateTime = endDateTime;
-        LastModifiedDateTime = lastModifiedDateTime;
+        this.Id = id;
+        this.MovieName = movieName;
+        this.Synopsis = synopsis;
+        this.Language = language;
+        this.Room = room;
+        this.StartDateTime = startDateTime;
+        this.EndDateTime = endDateTime;
+        this.LastModifiedDateTime = lastModifiedDateTime;
     }
 
     public static ErrorOr<Session> Create(
