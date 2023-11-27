@@ -1,19 +1,22 @@
 
-@id=e26657aa-6977-46fc-b143-03017336b87c
+@id=840eb6c7-7994-4c6c-8bf5-18cd74d1155d
 POST http://localhost:5283/sessions
 Content-Type: application/json
 
 {
-    "movieName":"Teste errado",
+    "movieName":"Teste errado 2",
     "synopsis":"era uma vez uma filme",
     "language":"dublado",
-    "room":"0",
+    "room":"2",
     "startDateTime":"2022-04-08T11:00:00",
     "endDateTime":"2022-04-08T13:00:00"
 }
 
 ###
 GET http://localhost:5283/sessions/{{id}}
+
+###
+GET http://localhost:5283/sessions
 
 ###
 PUT http://localhost:5283/sessions/{{id}}

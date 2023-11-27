@@ -10,6 +10,10 @@ public static class Errors
             code: "Session.NotFound",
             description: "Session not found");
 
+        public static Error NotCreated => Error.Failure(
+        code: "Session.NotCreated",
+        description: "Session not created");
+
         public static Error InvalidRoom => Error.Validation(
             code: "Session.NotFound",
             description: $"Session room must be between {Models.Session.MinRoomNumber} and {Models.Session.MaxRoomNumber}");

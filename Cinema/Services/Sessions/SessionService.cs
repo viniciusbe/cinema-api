@@ -1,3 +1,4 @@
+using Cinema.Data;
 using Cinema.Models;
 using Cinema.ServiceErrors;
 using ErrorOr;
@@ -6,35 +7,67 @@ namespace Cinema.Services.Sessions;
 
 public class SessionService : ISessionService
 {
-    private static readonly Dictionary<Guid, Session> _sessions = new();
+    private readonly IRepository _repo;
+
+    public SessionService(IRepository repo)
+    {
+        _repo = repo;
+    }
+
     public ErrorOr<Created> CreateSession(Session session)
     {
-        _sessions.Add(session.Id, session);
+        _repo.Add(session);
+        if (_repo.SaveChanges())
+        {
+            return Result.Created;
+        }
 
-        return Result.Created;
+        return Errors.Session.NotCreated;
+
     }
 
     public ErrorOr<Deleted> DeleteSession(Guid id)
     {
-        _sessions.Remove(id);
-
-        return Result.Deleted;
+        _repo.Delete(id);
+        if (_repo.SaveChanges())
+        {
+            return Result.Deleted;
+        }
+        return Errors.Session.NotCreated;
     }
 
     public ErrorOr<Session> GetSession(Guid id)
     {
-        if (_sessions.TryGetValue(id, out var session))
+
+        Session? session = _repo.GetSessionById(id);
+        if (session == null)
         {
-            return session;
+            return Errors.Session.NotFound;
         }
-        return Errors.Session.NotFound;
+
+        return session;
+    }
+
+    public ErrorOr<Session[]> GetAllSessions()
+    {
+        Session[] sessions = _repo.GetAllSessions();
+
+        return sessions;
+
+
     }
 
     public ErrorOr<UpsertedSession> UpsertSession(Session session)
     {
-        var IsNewlyCreated = !_sessions.ContainsKey(session.Id);
-        _sessions[session.Id] = session;
+        _repo.Update(session);
 
-        return new UpsertedSession(IsNewlyCreated);
+        if (_repo.SaveChanges())
+        {
+            return new UpsertedSession(false);
+        }
+        return Errors.Session.NotCreated;
+
+
+        // return new UpsertedSession(IsNewlyCreated);
     }
 }

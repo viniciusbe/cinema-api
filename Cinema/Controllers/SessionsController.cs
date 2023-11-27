@@ -36,6 +36,17 @@ public class SessionsController : ApiController
         );
     }
 
+    [HttpGet()]
+    public IActionResult GetAllSessions()
+    {
+        ErrorOr<Session[]> getSessionResult = _sessionService.GetAllSessions();
+
+        return getSessionResult.Match(
+            sessions => Ok(sessions.Select(session => MapSessionResponse(session))),
+            errors => Problem(errors)
+        );
+    }
+
     [HttpGet("{id:guid}")]
     public IActionResult GetSession(Guid id)
     {
