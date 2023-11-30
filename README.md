@@ -8,14 +8,13 @@ The project relies on the following dependencies:
 
 - [ErrorOr](https://www.nuget.org/packages/ErrorOr/) (Version 1.3.0)
 - [Microsoft.EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/) (Version 6.0.11)
-- [Npgsql](https://www.nuget.org/packages/Npgsql/) (Version 8.0.0)
 - [Npgsql.EntityFrameworkCore.PostgreSQL](https://www.nuget.org/packages/Npgsql.EntityFrameworkCore.PostgreSQL/) (Version 6.0.7)
 
 ## Todo List
 
 Here is a list of features that will be developed in the future:
 
-1. **Connection with PostgreSQL (In Progress)**
+1. **Connection with PostgreSQL (Done)**
 
    - Establish a connection with a PostgreSQL database for data storage.
 
@@ -23,9 +22,9 @@ Here is a list of features that will be developed in the future:
 
    - Integrate the application with The Movie Database (TMDB) API for fetching movie information.
 
-3. **Tickets CRUD (To be developed)**
+3. **Tickets CRUD**
 
    - Implement CRUD (Create, Read, Update, Delete) functionality for managing cinema tickets.
 
-4. **Clients CRUD (To be developed)**
+4. **Clients CRUD**
    - Implement CRUD functionality for managing client information.
